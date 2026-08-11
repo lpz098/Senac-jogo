@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Desafio da Alimentação</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card" id="startScreen">
+
+        <div class="logo">🥗</div>
+
+        <h1>Desafio da Alimentação</h1>
+
+        <p>
+            Teste seus conhecimentos sobre alimentação,
+            nutrição e hábitos saudáveis!
+        </p>
+
+        <input
+            type="text"
+            id="playerName"
+            placeholder="Digite seu nome"
+            maxlength="20"
+            autocomplete="off"
+        >
+
+        <button
+            class="startButton"
+            onclick="startGame()"
+        >
+            🚀 Começar desafio
+        </button>
+
+        <button
+            class="rankingButton"
+            onclick="showRanking()"
+        >
+            🏆 Ver ranking
+        </button>
+
+    </div>
+
+
+    <div class="card game" id="gameScreen">
+
+        <h1>🥗 Desafio da Alimentação</h1>
+
+        <div class="info">
+
+            <span>
+                👤
+                <strong id="currentPlayer"></strong>
+            </span>
+
+            <span>
+                🏆
+                <strong id="score">0</strong>
+            </span>
+
+            <span>
+                ❤️
+                <strong id="lives">3</strong>
+            </span>
+
+            <span>
+                ❓
+                <strong id="questionNumber">1</strong>/10
+            </span>
+
+        </div>
+
+
+        <div class="progress">
+
+            <div id="progressBar"></div>
+
+        </div>
+
+
+        <div
+            class="difficulty"
+            id="difficulty"
+        >
+            FÁCIL
+        </div>
+
+
+        <div
+            class="emoji"
+            id="emoji"
+        >
+            🥗
+        </div>
+
+
+        <h2 id="question">
+            Pergunta
+        </h2>
+
+
+        <div id="answers"></div>
+
+
+        <p id="message"></p>
+
+    </div>
+
+
+    <div class="card" id="resultScreen">
+
+        <div class="trophy">
+            🏆
+        </div>
+
+        <h1>Fim do desafio!</h1>
+
+        <h2 id="resultName"></h2>
+
+        <div class="finalScore">
+
+            <span id="finalScore">0</span>
+
+            pontos
+
+        </div>
+
+        <p id="resultMessage"></p>
+
+        <p id="saveMessage"></p>
+
+
+        <button
+            class="startButton"
+            onclick="restartGame()"
+        >
+            🔄 Jogar novamente
+        </button>
+
+
+        <button
+            class="rankingButton"
+            onclick="showRanking()"
+        >
+            🏆 Ver ranking
+        </button>
+
+    </div>
+
+
+    <div class="card" id="rankingScreen">
+
+        <h1>🏆 Ranking</h1>
+
+        <p>
+            Os 10 melhores recordes
+        </p>
+
+
+        <div id="rankingList">
+
+            <p>
+                ⏳ Carregando ranking...
+            </p>
+
+        </div>
+
+
+        <button
+            class="startButton"
+            onclick="backToStart()"
+        >
+            ↩ Voltar
+        </button>
+
+    </div>
+
+</div>
+
+
+<script
+    src="{{ url_for('static', filename='script.js') }}"
+></script>
+
+</body>
+
+</html>
